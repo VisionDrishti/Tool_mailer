@@ -1,0 +1,15 @@
+<h1>Tasks</h1>
+
+Our blog has <%= Task.public_count %> tasks and counting!
+
+<ul>
+  <% @tasks.each do |task| %>
+    <% unless task.archived? %>
+      <li>
+        <%= link_to task.title, task %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Task", new_task_path %>
